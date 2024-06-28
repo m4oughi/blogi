@@ -1,7 +1,5 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource prefix="/blogi">
 <file alias="main.qml">/home/m4oughi/Desktop/projects/blogi/main.qml</file>
-<file alias="main1.qml">/home/m4oughi/Desktop/projects/blogi/main1.qml</file>
-<file alias="main2.qml">/home/m4oughi/Desktop/projects/blogi/main2.qml</file>
 </qresource>
 </RCC>

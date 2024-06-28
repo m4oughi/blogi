@@ -13922,9 +13922,9 @@ var asm = createWasm();
 /** @type {function(...*):?} */
 var ___wasm_call_ctors = createExportWrapper("__wasm_call_ctors");
 /** @type {function(...*):?} */
-var _main = Module["_main"] = createExportWrapper("__main_argc_argv");
-/** @type {function(...*):?} */
 var _free = createExportWrapper("free");
+/** @type {function(...*):?} */
+var _main = Module["_main"] = createExportWrapper("__main_argc_argv");
 /** @type {function(...*):?} */
 var _malloc = createExportWrapper("malloc");
 /** @type {function(...*):?} */
@@ -13980,8 +13980,8 @@ var _emscripten_stack_get_current = function() {
 var ___cxa_demangle = createExportWrapper("__cxa_demangle");
 /** @type {function(...*):?} */
 var ___cxa_is_pointer_type = createExportWrapper("__cxa_is_pointer_type");
-var ___start_em_js = Module['___start_em_js'] = 14432492;
-var ___stop_em_js = Module['___stop_em_js'] = 14432974;
+var ___start_em_js = Module['___start_em_js'] = 14431324;
+var ___stop_em_js = Module['___stop_em_js'] = 14431806;
 function invoke_ii(index,a1) {
   var sp = stackSave();
   try {

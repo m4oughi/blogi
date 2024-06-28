@@ -1,17 +1,18 @@
-import QtQuick 2.15
-import QtQuick.Window
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Controls.Material
+
 import "qrc:/Assets/External/"
+import "qrc:/Theme/"
 
 ApplicationWindow {
     id: root
 
     // 360 * 740
     // 411 * 914
-
-    width: 411 //Screen.width
-    height: 914 //Screen.height
+    width: Screen.width
+    height: Screen.height
     visible: true
     color: "#716F73"
     title: "Mohammad Foroughi"
@@ -32,7 +33,6 @@ ApplicationWindow {
         source: "/Assets/fonts/GothamBook.ttf"
     } // FontLoader
 
-
     Rectangle {
         id: externalFrameId
 
@@ -49,95 +49,132 @@ ApplicationWindow {
         Rectangle {
             id: internalFrameId
 
-            clip: true
-
             anchors.fill: parent
             anchors.margins: 15
+
+            clip: true
 
             radius: 15
             color: "#1D1C1D"
 
-            Flickable {
-                id: flickableboxId
+            Row {
+                anchors.fill: parent
 
-                contentWidth: parent.width
-                contentHeight: 1500
+                Rectangle {
+                    width: (1 / 3) * parent.width
+                    height: parent.height
 
-                ScrollBar.vertical: ScrollBar {
-                    policy: ScrollBar.AlwaysOn
-                }
+                    color: "#1D1C1D"
 
-
-                Column {
-                    id: contentColumnId
-
-                    anchors.fill: parent
-
-                    spacing: 10
+                    anchors.margins: 20
 
                     Rectangle {
-                        id: spacer1
-
                         width: parent.width
-                        height: 30
+                        height: (1 / 10) * parent.height
+
+                        anchors.top: parent.top
+                        anchors.bottom: profileId.top
+                        color: "#1D1C1D"
+                    }
+
+                    LargeProfile {}
+
+                    Rectangle {
+                        width: parent.width
+                        height: (1 / 10) * parent.height
+
+                        anchors.top: profileId.bottom
+                        anchors.bottom: parent.bottom
 
                         color: "#1D1C1D"
-                    } // spacer1
+                    }
+                }
 
+                Rectangle {
+                    width: (2 / 3) * parent.width
+                    height: parent.height
 
+                    color: "#1D1C1D"
+
+                    anchors.margins: 20
+
+                    Flickable {
+                        anchors.fill: parent
+
+                        contentWidth: parent.width
+                        contentHeight: 1000
+
+                        ScrollBar.vertical: ScrollBar {
+                            policy: ScrollBar.AlwaysOn
+                        }
+                    }
+                }
+            } // Row
+        } // internalFrameId
+    } // externalFrameId
+} // root
+
+/*
                     Rectangle {
-                        id: profileBoxId
+                        width: (0.8) * parent.width
+                        height: (0.8) * parent.height
 
-                        width: (10/11) * parent.width
-                        height: profileColumnId.implicitHeight + 20
+                        anchors.centerIn: parent
 
-                        anchors.horizontalCenter: parent.horizontalCenter
-
-                        radius: 10
                         color: "#1D1C1D"
                         border.color: "#15CF81"
                         border.width: 2
+                        radius: 20
+
+
 
                         Column {
-                            id: profileColumnId
+                            anchors.fill: parent
 
-                            width: profileBoxId.width - 10
+                            spacing: 10
 
-                            spacing: 5
-                            topPadding: 20
+                            topPadding: (1 / 30) * parent.width
+
+                            Rectangle {
+                                id: spacer0
+                                width: 0.9 * parent.width
+                                height: (1 / 30) * parent.width
+
+                                anchors.horizontalCenter: parent.horizontalCenter
+
+                                color: "#1D1C1D"
+                            } // spacer1
 
                             Image {
                                 id: personalPicId
                                 source: "/Assets/profile/Mo.png"
 
-                                width: (3/5)*parent.width
-                                height: (3/5)*parent.width
+                                width: (4 / 10) * parent.width * (1 / 600) * parent.height
+                                height: (4 / 10) * parent.width * (1 / 600) * parent.height
 
                                 anchors.horizontalCenter: parent.horizontalCenter
                             } // personalPicId
 
-
-                            Rectangle{
-                                id: spacer2
+                            Rectangle {
+                                id: spacer1
                                 width: 0.9 * parent.width
-                                height: 10
+                                height: (1 / 30) * parent.width
 
                                 anchors.horizontalCenter: parent.horizontalCenter
 
                                 color: "#1D1C1D"
-                            } // spacer2
-
+                            } // spacer1
 
                             Text {
                                 id: nameId
 
                                 anchors.horizontalCenter: parent.horizontalCenter
 
-                                text: "Mohammad Foroughi"
+                                text: qsTr("Mohammad Foroughi")
                                 color: "White"
 
                                 font.family: gothamBoldFontId.name
-                                font.pointSize: (1/15)*parent.width
+                                font.pointSize: (1 / 25) * parent.width
                                 font.bold: true
                             } // nameId
 
@@ -151,10 +188,19 @@ ApplicationWindow {
                                 color: "White"
 
                                 font.family: gothamThinItalicFontId.name
-                                font.pointSize: (1/18)*parent.width
+                                font.pointSize: (1 / 30) * parent.width
                                 font.bold: true
                             } // majorId
 
+                            Rectangle {
+                                id: spacer2
+                                width: 0.9 * parent.width
+                                height: (1 / 30) * parent.width
+
+                                anchors.horizontalCenter: parent.horizontalCenter
+
+                                color: "#1D1C1D"
+                            } // spacer2
 
                             Text {
                                 id: phoneLink
@@ -163,7 +209,7 @@ ApplicationWindow {
                                 anchors.horizontalCenter: parent.horizontalCenter
 
                                 font.family: gothamThinItalicFontId.name
-                                font.pointSize: (1/25)*parent.width
+                                font.pointSize: (1 / 35) * parent.width
                                 font.bold: true
 
                                 textFormat: Text.RichText
@@ -181,7 +227,7 @@ ApplicationWindow {
                                 anchors.horizontalCenter: parent.horizontalCenter
 
                                 font.family: gothamThinItalicFontId.name
-                                font.pointSize: (1/28)*parent.width
+                                font.pointSize: (1 / 35) * parent.width
                                 font.bold: true
 
                                 textFormat: Text.RichText
@@ -194,34 +240,33 @@ ApplicationWindow {
 
                             Component.onCompleted: {
                                 // Set the phone link text
-                                phoneLink.text = '<a style="color:white; text-decoration:none;" href="tel:+989226219173">+98 922 621 9173</a>';
+                                phoneLink.text = '<a style="color:white; text-decoration:none;" href="tel:+989226219173">+98 922 621 9173</a>'
 
                                 // Set the email link text
-                                emailLink.text = '<a style="color:white; text-decoration:none;" href="mailto:foroughi.mohammad.1994@gmail.com">foroughi.mohammad.1994@gmail.com</a>';
+                                emailLink.text = '<a style="color:white; text-decoration:none;" href="mailto:foroughi.mohammad.1994@gmail.com">foroughi.mohammad.1994@gmail.com</a>'
                             } // Component
 
-                            Rectangle{
+                            Rectangle {
                                 id: spacer3
                                 width: (0.9) * parent.width
-                                height: 10
+                                height: (1 / 30) * parent.width
 
                                 anchors.horizontalCenter: parent.horizontalCenter
 
                                 color: "#1D1C1D"
-                            } // spacer3
-
+                            } // spacer2
 
                             Rectangle {
                                 id: socialId1
 
                                 width: parent.width - 30
-                                height: (2/13) * parent.width
+                                height: (1 / 8) * parent.width
 
                                 anchors.horizontalCenter: parent.horizontalCenter
 
                                 color: "#1D1C1D"
 
-                                Button{
+                                Button {
                                     id: linkedinId
 
                                     width: socialId1.height
@@ -237,15 +282,16 @@ ApplicationWindow {
                                         source: "/Assets/icons/linkedin.png"
 
                                         anchors.fill: parent
-                                    }  // background
+                                    } // background
 
                                     MouseArea {
-                                        onClicked: Qt.openUrlExternally("https://www.linkedin.com/in/mohamad-foroughi/")
+                                        onClicked: Qt.openUrlExternally(
+                                                       "https://www.linkedin.com/in/mohamad-foroughi/")
                                         anchors.fill: parent
                                     } // MouseArea
                                 } // linkedinId
 
-                                Button{
+                                Button {
                                     id: githubId
 
                                     width: socialId1.height
@@ -262,12 +308,13 @@ ApplicationWindow {
                                     } // background
 
                                     MouseArea {
-                                        onClicked: Qt.openUrlExternally("https://github.com/m4oughi")
+                                        onClicked: Qt.openUrlExternally(
+                                                       "https://github.com/m4oughi")
                                         anchors.fill: parent
                                     } // MouseArea
                                 } // githubId
 
-                                Button{
+                                Button {
                                     id: twitterId
 
                                     width: socialId1.height
@@ -286,10 +333,10 @@ ApplicationWindow {
                                     } // background
 
                                     MouseArea {
-                                        onClicked: Qt.openUrlExternally("https://x.com/mohammad4oughi")
+                                        onClicked: Qt.openUrlExternally(
+                                                       "https://x.com/mohammad4oughi")
                                         anchors.fill: parent
                                     } // MouseArea
-
                                 } // twitterId
                             } // socialId1
 
@@ -297,13 +344,13 @@ ApplicationWindow {
                                 id: socialId2
 
                                 width: parent.width - 30
-                                height: (2/13) * parent.width
+                                height: (1 / 8) * parent.width
 
                                 anchors.horizontalCenter: parent.horizontalCenter
 
                                 color: "#1D1C1D"
 
-                                Button{
+                                Button {
                                     id: telegramId
 
                                     width: socialId2.height
@@ -322,12 +369,13 @@ ApplicationWindow {
                                     } // background
 
                                     MouseArea {
-                                        onClicked: Qt.openUrlExternally("https://t.me/Mohammad4oughi")
+                                        onClicked: Qt.openUrlExternally(
+                                                       "https://t.me/Mohammad4oughi")
                                         anchors.fill: parent
                                     } // MouseArea
                                 } // telegramId
 
-                                Button{
+                                Button {
                                     id: whatsappId
 
                                     width: socialId2.height
@@ -344,12 +392,13 @@ ApplicationWindow {
                                     } // background
 
                                     MouseArea {
-                                        onClicked: Qt.openUrlExternally("https://wa.me/989226219173")
+                                        onClicked: Qt.openUrlExternally(
+                                                       "https://wa.me/989226219173")
                                         anchors.fill: parent
                                     } // MouseArea
                                 } // whatsappId
 
-                                Button{
+                                Button {
                                     id: skypeId
 
                                     width: socialId2.height
@@ -368,545 +417,38 @@ ApplicationWindow {
                                     } // background
 
                                     MouseArea {
-                                        onClicked: Qt.openUrlExternally("https://join.skype.com/invite/zHbY39GpwOhc")
+                                        onClicked: Qt.openUrlExternally(
+                                                       "https://join.skype.com/invite/zHbY39GpwOhc")
                                         anchors.fill: parent
                                     } // MouseArea
-
                                 } // skypeId
                             } // socialId2
-                        } // profileColumnId
-                    } // profileBoxId
 
+                            Rectangle {
+                                id: spacer4
+                                width: 0.9 * parent.width
+                                height: (1 / 30) * parent.width
 
-
-
-                    Rectangle {
-                        id: aboutMeId
-
-                        anchors.horizontalCenter: parent.horizontalCenter
-
-                        width: (10/11) * parent.width
-                        height: aboutId.implicitHeight + 20
-
-                        radius: 10
-                        color: "#1D1C1D"
-                        border.color: "#15CF81"
-                        border.width: 2
-
-
-                        Text {
-                            id: aboutId
-
-                            wrapMode: Text.WordWrap
-
-                            text: "I am an engineer with strong skills in math and programming, " +
-                            "passionate about creating sustainable and resilient " +
-                            "infrastructures. I recieived my M.Sc. from Isfahan University " +
-                            "of Technology, focusing on advanced computational modeling and risk " +
-                            "analysis. I have experience in teaching and research, and I am " +
-                            "interested in using math and statistics to solve real-world " +
-                            "engineering problems. I am now aiming to continue my research " +
-                            "through a Ph.D. program, where I can work on sustainable solutions " +
-                            "for global challenges. My dream is to become a top researcher and " +
-                            "teacher, dedicated to making a positive difference in the world."
-
-
-                            anchors.fill: parent
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.margins: 10
-                            horizontalAlignment: Text.AlignJustify
-
-                            color: "White"
-                            font.pointSize: 12
-                        } // aboutMeId
-                    } // aboutId
-
-//////////////////////////////////////////////////////////////////////
-
-                    Rectangle {
-                        id: spacer4
-
-                        width: (9/10)*parent.width
-                        height: 20
-
-                        anchors.horizontalCenter: parent.horizontalCenter
-
-                        color: "#1D1C1D"
-                    }
-
-
-
-                    Rectangle {
-                        id: backMenuBarId
-
-                        width: parent.width
-                        height: 50
-
-                        color: "#1D1C1D"
-                        clip: true
-
-
-                        Rectangle {
-                            id: menuBarId
-
-                            width: (0.9) * parent.width
-                            height: parent.height
-
-                            anchors.horizontalCenter: parent.horizontalCenter
-
-                            radius: 10
-
-                            color: "#1D1C1D"
-                            border.color: "#15CF81"
-                            border.width: 2
-
-                            clip: true
-
-
-
-                            Flickable {
-                                id: menuBtnsId
-
-                                anchors.fill: parent
                                 anchors.horizontalCenter: parent.horizontalCenter
 
-                                contentWidth: 500
-                                contentHeight: parent.height
+                                color: "#1D1C1D"
+                            } // spacer1
 
-                                ScrollBar.horizontal: ScrollBar {
-                                    policy: ScrollBar.AlwaysOn
-                                }
+                            Text {
+                                id: copyRightId
+                                text: qsTr(
+                                          "© 2024 m4oughi. All Right Reserved!")
 
+                                anchors.topMargin: (1 / 30) * parent.height
+                                anchors.horizontalCenter: parent.horizontalCenter
 
-                                Row {
-                                    id: rowMenuId
+                                color: "grey"
 
-                                    anchors.fill: parent
-
-                                    Button {
-                                        id: educationBtn
-
-                                        width: educationBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: educationBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        anchors.leftMargin: (1/5)*parent.width
-
-                                        background: Image {
-                                            id: educationImageBtn
-
-                                            source: view.currentIndex === 0 ? "/Assets/icons/education-hover.png" : educationBtn.hovered ? "/Assets/icons/education-hover.png" : "/Assets/icons/education.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 0
-                                        }
-                                    } // educationBtn
-
-
-                                    Button {
-                                        id: interestsBtn
-
-                                        width: interestsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: interestsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: educationBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: interestsImageBtn
-
-                                            source: view.currentIndex === 1 ? "/Assets/icons/heart-hover.png" : interestsBtn.hovered ? "/Assets/icons/heart-hover.png" : "/Assets/icons/heart.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 1
-                                        }
-                                    } // interestsBtn
-
-                                    Button {
-                                        id: projectsBtn
-
-                                        width: projectsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: projectsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: interestsBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: projectsImageBtn
-
-                                            source: view.currentIndex === 2 ? "/Assets/icons/projects-hover.png" : projectsBtn.hovered ? "/Assets/icons/projects-hover.png" : "/Assets/icons/projects.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 2
-                                        }
-                                    } // projectsBtn
-
-                                    Button {
-                                        id: instructorBtn
-
-                                        width: instructorBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: instructorBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: projectsBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: instructorImageBtn
-
-                                            source: view.currentIndex === 3 ? "/Assets/icons/instructor-hover.png" : instructorBtn.hovered ? "/Assets/icons/instructor-hover.png" : "/Assets/icons/instructor.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 3
-                                        }
-                                    } // instructorBtn
-
-                                    Button {
-                                        id: honorsBtn
-
-                                        width: honorsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: honorsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: instructorBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: honorsImageBtn
-
-                                            source: view.currentIndex === 4 ?  "/Assets/icons/honors-hover.png" : honorsBtn.hovered ? "/Assets/icons/honors-hover.png" : "/Assets/icons/honors.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 4
-                                        }
-                                    } // honorsBtn
-
-                                    Button {
-                                        id: publicationsBtn
-
-                                        width: publicationsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: publicationsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: honorsBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: publicationsImageBtn
-
-                                            source: view.currentIndex === 5 ? "/Assets/icons/publications-hover.png" : publicationsBtn.hovered ? "/Assets/icons/publications-hover.png" : "/Assets/icons/publications.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 5
-                                        }
-                                    } // publicationsBtn
-
-                                    Button {
-                                        id: thesisBtn
-
-                                        width: thesisBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: thesisBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: publicationsBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: thesisImageBtn
-
-                                            source: view.currentIndex === 6 ? "/Assets/icons/thesis-hover.png" : thesisBtn.hovered ? "/Assets/icons/thesis-hover.png" : "/Assets/icons/thesis.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 6
-                                        }
-                                    } // thesisBtn
-
-                                    Button {
-                                        id: courseworksBtn
-
-                                        width: courseworksBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: courseworksBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: thesisBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: courseworksImageBtn
-
-                                            source: view.currentIndex === 7 ? "/Assets/icons/courseworks-hover.png" : courseworksBtn.hovered ? "/Assets/icons/courseworks-hover.png" : "/Assets/icons/courseworks.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 7
-                                        }
-                                    } // courseworksBtn
-
-                                    Button {
-                                        id: conferencesBtn
-
-                                        width: conferencesBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: conferencesBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: courseworksBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: conferencesImageBtn
-
-                                            source: view.currentIndex === 8 ? "/Assets/icons/conferences-hover.png" : conferencesBtn.hovered ? "/Assets/icons/conferences-hover.png" : "/Assets/icons/conferences.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 8
-                                        }
-                                    } // conferencesBtn
-
-                                    Button {
-                                        id: skillsBtn
-
-                                        width: skillsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: skillsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: conferencesBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: skillsImageBtn
-
-                                            source: view.currentIndex === 9 ? "/Assets/icons/skills-hover.png" : skillsBtn.hovered ? "/Assets/icons/skills-hover.png" : "/Assets/icons/skills.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 9
-                                        }
-                                    } // skillsBtn
-
-
-                                    Button {
-                                        id: recommendationsBtn
-
-                                        width: recommendationsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-                                        height: recommendationsBtn.hovered ? (1/11)*parent.width + (1/100)* parent.width : (1/11)*parent.width
-
-                                        anchors.left: skillsBtn.right
-                                        anchors.verticalCenter: parent.verticalCenter
-
-                                        background: Image {
-                                            id: recommendationImageBtn
-
-                                            source: view.currentIndex === 10 ? "/Assets/icons/recommendations-hover.png" : recommendationsBtn.hovered ? "/Assets/icons/recommendations-hover.png" : "/Assets/icons/recommendations.png"
-                                            sourceSize.width: Math.min(parent.width, parent.height)
-                                            sourceSize.height: Math.min(parent.width, parent.height)
-
-                                            fillMode: Image.PreserveAspectFit
-
-                                            smooth: true
-
-                                            layer.enabled: true
-                                        }
-
-                                        MouseArea {
-                                            anchors.fill: parent
-                                            onClicked: view.currentIndex = 10
-                                        }
-                                    } // recommendationsBtn
-                                } // rowMenuId
-                            } // menuBtnsId
-                        } // menuBarId
-                    } // backMenuBarId
-
-
-
-
-
-
-                    Rectangle {
-                        id: swipId
-
-                        width: parent.width
-                        height: 500
-
-                        color: "#1D1C1D"
-
-                        clip: true
-
-                        Rectangle {
-                            id: swipRecId
-
-                            width: (9/10) * parent.width
-                            height: parent.height
-
-                            anchors.horizontalCenter: parent.horizontalCenter
-
-                            color: "#1D1C1D"
-                            border.color: "#15CF81"
-                            border.width: 1
-                            radius: 20
-
-                            clip: true
-
-                            SwipeView {
-                                id: view
-
-                                currentIndex: 0
-
-                                anchors.fill: parent
-                                //anchors.margins: 40
-
-                                Education {
-                                    id: educationId
-                                }
-
-                                Interests {
-                                    id: interestsId
-                                }
-
-
-
-                                Projects {
-                                    id: projectsId
-                                }
-
-                                Experiences {
-                                    id: experienceId
-                                }
-
-                                Honors {
-                                    id: honorsId
-                                }
-
-
-                                Conferences {
-                                    id: conferenceId
-                                }
-
-                                Publications {
-                                    id: publicationsId
-                                }
-
-
-                                Courseworks {
-                                    id: courseworksId
-                                }
-
-                                Workshops {
-                                    id: workshopsId
-                                }
-
-                                Skills {
-                                    id: skillsId
-                                }
-
-
-                                References {
-                                    id: referencesId
-                                }
-                            }
+                                font.family: gothamThinItalicFontId.name
+                                font.pointSize: (1 / 40) * parent.width
+                            } // copyRightId
                         }
                     }
+                }
+                */
 
-
-
-                } // contentColumnId
-            } // flickableboxId
-        } // internalFrameId
-    } // externalFrameId
-} // root
-
-
-/*
-
-                    */

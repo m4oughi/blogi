@@ -57,9 +57,7 @@ SOURCES       = ../../main.cpp qrc_Resources.cpp \
 OBJECTS       = main.o \
 		qrc_Resources.o \
 		qrc_qmake_resources.o
-DIST          = ../../main1.qml \
-		../../main2.qml \
-		/home/m4oughi/Qt/6.6.3/android_x86/mkspecs/features/spec_pre.prf \
+DIST          = /home/m4oughi/Qt/6.6.3/android_x86/mkspecs/features/spec_pre.prf \
 		/home/m4oughi/Qt/6.6.3/android_x86/mkspecs/common/unix.conf \
 		/home/m4oughi/Qt/6.6.3/android_x86/mkspecs/common/linux.conf \
 		/home/m4oughi/Qt/6.6.3/android_x86/mkspecs/common/sanitize.conf \
@@ -1133,7 +1131,10 @@ qrc_Resources.cpp: ../../Resources.qrc \
 		../../Assets/icons/projects.png \
 		../../Assets/icons/honors-hover.png \
 		../../Assets/icons/instagram.png \
-		../../Assets/icons/instructor-hover.png
+		../../Assets/icons/instructor-hover.png \
+		../../Theme/small.qml \
+		../../Theme/LargeProfile.qml \
+		../../Theme/medium.qml
 	/home/m4oughi/Qt/6.6.3/gcc_64/libexec/rcc -name Resources --no-zstd ../../Resources.qrc -o qrc_Resources.cpp
 
 qrc_qmake_resources.cpp: qmake_resources.qrc \
@@ -1346,7 +1347,8 @@ main.o: ../../main.cpp /home/m4oughi/Qt/6.6.3/android_x86/include/QtGui/QGuiAppl
 		/home/m4oughi/Qt/6.6.3/android_x86/include/QtGui/qtransform.h \
 		/home/m4oughi/Qt/6.6.3/android_x86/include/QtGui/qpolygon.h \
 		/home/m4oughi/Qt/6.6.3/android_x86/include/QtGui/qregion.h \
-		/home/m4oughi/Qt/6.6.3/android_x86/include/QtCore/qline.h
+		/home/m4oughi/Qt/6.6.3/android_x86/include/QtCore/qline.h \
+		/home/m4oughi/Qt/6.6.3/android_x86/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 qrc_Resources.o: qrc_Resources.cpp 

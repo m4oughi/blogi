@@ -3,7 +3,7 @@ QT += quick
 SOURCES += \
         main.cpp
 
-resources.files = main.qml  main1.qml main2.qml
+resources.files = main.qml
 resources.prefix = /$${TARGET}
 RESOURCES += resources \
     Resources.qrc
@@ -19,6 +19,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    main1.qml \
-    main2.qml
+DISTFILES +=

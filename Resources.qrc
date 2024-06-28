@@ -55,5 +55,8 @@
         <file>Assets/External/References.qml</file>
         <file>Assets/External/Workshops.qml</file>
         <file>Assets/profile/background.jpg</file>
+        <file>Theme/medium.qml</file>
+        <file>Theme/small.qml</file>
+        <file>Theme/LargeProfile.qml</file>
     </qresource>
 </RCC>
