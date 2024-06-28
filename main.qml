@@ -98,14 +98,43 @@ ApplicationWindow {
 
                     anchors.margins: 20
 
-                    Flickable {
-                        anchors.fill: parent
+                    Column {
+                        width: parent.width
+                        height: parent.height
 
-                        contentWidth: parent.width
-                        contentHeight: 1000
+                        Rectangle {
+                            width: parent.width
+                            height: 0.1 * parent.height
+                            color: "#1D1C1D"
+                        }
 
-                        ScrollBar.vertical: ScrollBar {
-                            policy: ScrollBar.AlwaysOn
+                        Rectangle {
+                            width: parent.width
+                            height: 0.8 * parent.height
+
+                            anchors.centerIn: parent
+                            clip: true
+
+                            color: "#1D1C1D"
+
+                            Rectangle {
+                                width: 0.9 * parent.width
+                                height: 0.9 * parent.height
+
+                                anchors.centerIn: parent
+                                clip: true
+
+                                color: "#1D1C1D"
+                                border.color: "#15CF81"
+                                border.width: 2
+                                radius: 20
+                            }
+                        }
+
+                        Rectangle {
+                            width: parent.width
+                            height: 0.1 * parent.height
+                            color: "#1D1C1D"
                         }
                     }
                 }
@@ -113,3 +142,15 @@ ApplicationWindow {
         } // internalFrameId
     } // externalFrameId
 } // root
+
+/*
+Flickable {
+    anchors.fill: parent
+    contentWidth: parent.width
+    contentHeight: 1500
+
+    ScrollBar.vertical: ScrollBar {
+        policy: ScrollBar.AlwaysOn
+    }
+}
+*/
