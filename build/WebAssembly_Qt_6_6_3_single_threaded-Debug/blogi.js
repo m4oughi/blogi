@@ -13980,8 +13980,8 @@ var _emscripten_stack_get_current = function() {
 var ___cxa_demangle = createExportWrapper("__cxa_demangle");
 /** @type {function(...*):?} */
 var ___cxa_is_pointer_type = createExportWrapper("__cxa_is_pointer_type");
-var ___start_em_js = Module['___start_em_js'] = 14430268;
-var ___stop_em_js = Module['___stop_em_js'] = 14430750;
+var ___start_em_js = Module['___start_em_js'] = 14431580;
+var ___stop_em_js = Module['___stop_em_js'] = 14432062;
 function invoke_ii(index,a1) {
   var sp = stackSave();
   try {
