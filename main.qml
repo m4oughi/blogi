@@ -240,12 +240,9 @@ ApplicationWindow {
                                                 Button {
                                                     id: educationBtn
 
-                                                    //anchors.fill: parent
-                                                    onClicked: console.log(
-                                                                   "Hi, I'm here!")
-
                                                     width: educationBtn.hovered ? parent.width + (1 / 10) * parent.width : parent.width
                                                     height: educationBtn.hovered ? parent.height + (1 / 10) * parent.height : parent.height
+
                                                     background: Image {
                                                         id: educationImageBtn
 

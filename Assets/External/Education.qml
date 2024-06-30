@@ -4,140 +4,209 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        anchors.margins: 10
 
-        Rectangle {
-            id: leftId
+        anchors.topMargin: 50
+        anchors.bottomMargin: 50
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
 
-            anchors.left: parent.left
-            anchors.right: rightId.left
+        color: "#1D1C1D"
 
-
-            width: (2/3) * parent.width
+        Row {
+            width: parent.width
             height: parent.height
 
-            color: "#1D1C1D"
-
-            Column {
-                width: parent.width
+            Rectangle {
+                width: (2 / 3) * parent.width
                 height: parent.height
 
-                Text {
-                    text: "Education"
-
-                    color: "white"
-
-                    font.family: gothamBoldFontId.name
-                    font.pointSize: (1/15)*parent.width
-                    font.bold: true
-
-                    wrapMode: Text.WordWrap
-                }
-
-                Text {
-                    text: "Isfahan University of Technology"
-
-                    color: "white"
-
-                    font.family: gothamBoldFontId.name
-                    font.pointSize: (1/15)*parent.width
-
-                    wrapMode: Text.WordWrap
-                }
-
-                Text {
-                    text: "<strong>M.SC.</strong> IN STRUCTURAL & EARTHQUAKE ENGINEERING (GPA: 17.32/20.00) "
-
-                    color: "white"
-
-                    font.family: gothamBoldFontId.name
-                    font.pointSize: (1/15)*parent.width
-
-                    wrapMode: Text.WordWrap
-                }
-
-
-                Rectangle {
+                color: "#1D1C1D"
+                Column {
                     width: parent.width
-                    height: 20
+                    height: parent.height
 
-                    Row {
+                    spacing: 10
+
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        color: "#1D1C1D"
+
                         Text {
-                            text: "<strong>Focus:</strong> Computational Mechanics "
-                            color: "white"
-
-                            font.family: gothamBoldFontId.name
-                            font.pointSize: 5
-
-                            wrapMode: Text.WordWrap
+                            text: "Education"
+                            color: "White"
                         }
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        color: "#1D1C1D"
 
                         Text {
-                            text: "<strong>Advisors:</strong> Prof. Mojtaba Azhari & Prof. Saeid Sarrami"
+                            text: "Isfahan University of Technology"
+                            color: "White"
+                        }
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
 
-                            color: "white"
+                        color: "#1D1C1D"
 
-                            font.family: gothamBoldFontId.name
-                            font.pointSize: 5
+                        Text {
+                            text: "M.Sc. in Structural and Earthquake Engineering (GPA: 17.32/20.00)"
+                            color: "White"
+                        }
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
 
-                            wrapMode: Text.WordWrap
+                        color: "#1D1C1D"
+
+                        Row {
+                            width: parent.width
+                            height: parent.height
+
+                            Rectangle {
+                                width: 0.5 * parent.width
+                                height: 0.1 * parent.height
+
+                                color: "#1D1C1D"
+                                Text {
+                                    text: "Computational Mechanics"
+
+                                    color: "White"
+                                }
+                            }
+                            Rectangle {
+                                width: 0.5 * parent.width
+                                height: 0.1 * parent.height
+
+                                color: "#1D1C1D"
+
+                                Text {
+                                    text: "Advisors: Mojtaba Azhari and Saeid Sarrami"
+                                    color: "White"
+                                }
+                            }
+                        }
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        color: "#1D1C1D"
+
+                        Text {
+                            text: "Azad University - Najafabad Branch"
+                            color: "White"
+                        }
+                    }
+
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        color: "#1D1C1D"
+
+                        Text {
+                            text: "B.Sc. in Civil Engineering (GPA: 17.28/20.00)"
+                            color: "White"
                         }
                     }
                 }
+            }
+            Rectangle {
+                width: (1 / 3) * parent.width
+                height: parent.height
 
-
-
-
-
-
-                Rectangle {
-                    id: spacer5
-
+                color: "Blue"
+                Column {
                     width: parent.width
-                    height: 10
+                    height: parent.height
 
-                    color: "#1D1C1D"
-                }
+                    spacing: 10
 
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
 
+                        Text {
+                            text: "Education"
+                        }
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
 
+                        Text {
+                            text: "Education"
+                        }
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
 
+                        Text {
+                            text: "Education"
+                        }
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
 
-                Text {
-                    text: "Azad University - Najafabaad Branch"
+                        Text {
+                            text: "Education"
+                        }
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
 
-                    color: "white"
+                        Text {
+                            text: "Education"
+                        }
+                    }
+                    Rectangle {
+                        width: 0.9 * parent.width
+                        height: 0.1 * parent.height
+                        anchors.horizontalCenter: parent.horizontalCenter
 
-                    font.family: gothamBoldFontId.name
-                    font.pointSize: (1/15)*parent.width
-
-                    wrapMode: Text.WordWrap
-                }
-
-                Text {
-                    text: "B.SC. IN Civil Engineering (GPA: 17.28/20.00) "
-
-                    color: "white"
-
-                    font.family: gothamBoldFontId.name
-                    font.pointSize: (1/15)*parent.width
-
-                    wrapMode: Text.WordWrap
+                        Text {
+                            text: "Education"
+                        }
+                    }
                 }
             }
         }
-
-
-        Rectangle {
-            id: rightId
-
-            anchors.right: parent.right
-
-            width: (1/3) * parent.width
-            height: parent.height
-
-            color: "#1D1C1D"
-        }
-
     }
 }
